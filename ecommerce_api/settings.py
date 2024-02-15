@@ -15,8 +15,9 @@ import os
 import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+
 MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 SECRET_KEY = os.environ.get("SECRET_KEY", default="your secret key")
 

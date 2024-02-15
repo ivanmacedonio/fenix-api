@@ -15,6 +15,8 @@ import os
 import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 
 SECRET_KEY = os.environ.get("SECRET_KEY", default="your secret key")
 
@@ -117,18 +119,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 import os
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
+
 if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
     STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
+
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-    "https://fenixapiecommerce.onrender.com",
-    "https://fenix-productos-economicos.netlify.app",
-]
+CORS_ALLOW_ALL_ORIGINS = True
